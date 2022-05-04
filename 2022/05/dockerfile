@@ -1,5 +1,12 @@
 FROM rocker/rstudio:4.1.0
 
+#install linux packages
+RUN apt-get update && apt-get install -y \
+apt-utils \
+apt-transport-https \
+gnupg \
+curl 
+
 # install dvc for debian/ubuntu (install from binary package to avoid any reproducibility issues) 
 RUN sudo wget \
 https://dvc.org/deb/dvc.list \
