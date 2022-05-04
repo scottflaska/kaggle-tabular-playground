@@ -5,7 +5,13 @@ RUN apt-get update && apt-get install -y \
 apt-utils \
 apt-transport-https \
 gnupg \
-curl 
+curl \
+nano \
+unixodbc \
+unixodbc-dev \
+tdsodbc \
+libxml2-dev \
+libz-dev 
 
 # install dvc for debian/ubuntu (install from binary package to avoid any reproducibility issues) 
 RUN sudo wget \
@@ -18,12 +24,6 @@ https://dvc.org/deb/dvc.list \
 #install R packages
 RUN R -e 'install.packages(pkgs = c("tidyverse"))'
 RUN R -e 'install.packages(pkgs = c("tidymodels"))'
-RUN R -e 'install.packages(pkgs = c("finetune"))'
-RUN R -e 'install.packages(pkgs = c("caret"))'
-RUN R -e 'install.packages(pkgs = c("doParallel"))'
-RUN R -e 'install.packages(pkgs = c("xgboost"))'
-RUN R -e 'install.packages(pkgs = c("patchwork"))'
-RUN R -e 'install.packages(pkgs = c("e1071"))'
 
 #set up project directory
 RUN mkdir -m 777 /home/rstudio/project

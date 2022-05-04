@@ -2,10 +2,10 @@ version: "3.9"
 
 services:
   
-  kaggle_2022_05:
+  kaggle_tabular_playground:
     build: .
-    image: kaggle_2022_05
-    container_name: kaggle_2022_05
+    image: kaggle_tabular_playground
+    container_name: kaggle_tabular_playground
     environment:
       - PASSWORD=nfl
       - USERID=${xUID}
