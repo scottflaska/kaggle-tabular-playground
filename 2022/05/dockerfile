@@ -1,0 +1,19 @@
+FROM rocker/rstudio:4.1.0
+
+# install dvc for debian/ubuntu (install from binary package to avoid any reproducibility issues) 
+RUN sudo wget \
+https://dvc.org/deb/dvc.list \
+-O /etc/apt/sources.list.d/dvc.list \
+&& wget -qO - https://dvc.org/deb/iterative.asc | sudo apt-key add - \
+&& sudo apt update \
+&& sudo apt install dvc
+
+#install R packages
+RUN R -e 'install.packages(pkgs = c("tidyverse"))'
+RUN R -e 'install.packages(pkgs = c("tidymodels"))'
+RUN R -e 'install.packages(pkgs = c("finetune"))'
+RUN R -e 'install.packages(pkgs = c("caret"))'
+RUN R -e 'install.packages(pkgs = c("doParallel"))'
+RUN R -e 'install.packages(pkgs = c("xgboost"))'
+RUN R -e 'install.packages(pkgs = c("patchwork"))'
+RUN R -e 'install.packages(pkgs = c("e1071"))'
