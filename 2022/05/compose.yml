@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  
+  kaggle_2022_05:
+    build: .
+    image: kaggle_2022_05
+    container_name: kaggle_2022_05
+    environment:
+      - PASSWORD=nfl
+      - USERID=${xUID}
+    ports:
+      - "8795:8787"
+    restart: always
+    volumes:
+      - .:/home/rstudio/project
