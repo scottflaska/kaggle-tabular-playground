@@ -15,6 +15,7 @@ model_data = train %>%
          f_06,
          f_07,
          f_08,
+         f_09,
          target)
 
 model_data %>% head()
