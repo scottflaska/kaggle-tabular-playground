@@ -12,6 +12,7 @@ model_data = train %>%
          f_03,
          f_04,
          f_05,
+         f_06,
          target)
 
 model_data %>% 
