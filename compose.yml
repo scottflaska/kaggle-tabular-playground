@@ -8,6 +8,7 @@ services:
     container_name: kaggle_tabular_playground
     environment:
       - PASSWORD=nfl
+      - ROOT=true
       - USERID=${xUID}
     ports:
       - "8795:8787"
