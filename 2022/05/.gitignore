@@ -1,0 +1,4 @@
+/train_fold.rds
+/validation_fold.rds
+/rpart_model.rds
+/accuracy.txt

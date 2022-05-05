@@ -1,0 +1,37 @@
+schema: '2.0'
+stages:
+  prepare_data:
+    cmd: Rscript prepare_data.R
+    deps:
+    - path: data/train.csv
+      md5: 38d8ca74676e1be914a84d2ae3696318
+      size: 318733334
+    - path: prepare_data.R
+      md5: e1736050205f988bcee6319be47b6f5e
+      size: 543
+    outs:
+    - path: train_fold.rds
+      md5: 357cb7e5ed181f84f46c84e61e216b57
+      size: 4093536
+    - path: validation_fold.rds
+      md5: 0b988578a03c898c7b3356de19f5b899
+      size: 32660352
+  train_model:
+    cmd: Rscript train_model.R
+    deps:
+    - path: train_fold.rds
+      md5: 357cb7e5ed181f84f46c84e61e216b57
+      size: 4093536
+    - path: train_model.R
+      md5: b336857fcc4a52f0299af5e1c87b4889
+      size: 857
+    - path: validation_fold.rds
+      md5: 0b988578a03c898c7b3356de19f5b899
+      size: 32660352
+    outs:
+    - path: accuracy.txt
+      md5: 86dd0872e7c0c0f385e78f4f5fe30ca4
+      size: 6
+    - path: rpart_model.rds
+      md5: 88d3a66d1f6becd2dde4c059297e2ea8
+      size: 81708

@@ -24,6 +24,8 @@ https://dvc.org/deb/dvc.list \
 #install R packages
 RUN R -e 'install.packages(pkgs = c("tidyverse"))'
 RUN R -e 'install.packages(pkgs = c("tidymodels"))'
+RUN R -e 'install.packages(pkgs = c("rpart"))'
+RUN R -e 'install.packages(pkgs = c("rpart.plot"))'
 
 #set up project directory
 RUN mkdir -m 777 /home/rstudio/project
