@@ -1,4 +1,4 @@
-library(tidyverse)
+suppressPackageStartupMessages(library(tidyverse))
 
 library(readr)
 
@@ -15,11 +15,10 @@ model_data = train %>%
          f_06,
          target)
 
-model_data %>% 
-  head()
+model_data %>% head()
 
 train_fold = model_data %>% 
-  filter(id < 100000)
+  filter(id < 300000)
 
 validation_fold = model_data %>% 
   filter(!(id %in% train_fold$id))
