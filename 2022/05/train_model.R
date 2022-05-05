@@ -2,16 +2,16 @@ library(tidyverse)
 
 library(rpart)
 
-train_fold = readRDS("~/project/2022/05/train_fold.rds")
+train_fold = readRDS("~/project/2022/05/outputs/train_fold.rds")
 
-validation_fold = readRDS("~/project/2022/05/validation_fold.rds")
+validation_fold = readRDS("~/project/2022/05/outputs/validation_fold.rds")
 
 rpart_model = rpart(formula = target ~ . - id,
                     data = train_fold,
                     method = "class",
                     cp = 0.001)
 
-saveRDS(rpart_model,file = "~/project/2022/05/rpart_model.rds")
+saveRDS(rpart_model,file = "~/project/2022/05/outputs/model.rds")
 
 validation_preds = validation_fold
 

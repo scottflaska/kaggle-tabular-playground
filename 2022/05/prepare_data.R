@@ -11,8 +11,8 @@ model_data = train %>%
          f_02,
          f_03,
          f_04,
+         f_05,
          target)
-
 
 model_data %>% 
   head()
@@ -23,6 +23,6 @@ train_fold = model_data %>%
 validation_fold = model_data %>% 
   filter(!(id %in% train_fold$id))
 
-saveRDS(object = train_fold, file = "~/project/2022/05/train_fold.rds")
+saveRDS(object = train_fold, file = "~/project/2022/05/outputs/train_fold.rds")
 
-saveRDS(object = validation_fold, file = "~/project/2022/05/validation_fold.rds")
+saveRDS(object = validation_fold, file = "~/project/2022/05/outputs/validation_fold.rds")

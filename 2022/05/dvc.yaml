@@ -5,15 +5,15 @@ stages:
     - prepare_data.R
     - data/train.csv
     outs: 
-    - train_fold.rds
-    - validation_fold.rds
+    - outputs/train_fold.rds
+    - outputs/validation_fold.rds
   train_model:
     cmd: Rscript train_model.R
     deps:
     - train_model.R
-    - train_fold.rds
-    - validation_fold.rds
+    - outputs/train_fold.rds
+    - outputs/validation_fold.rds
     outs:
-    - rpart_model.rds
+    - outputs/model.rds
     metrics:
     - accuracy.txt
