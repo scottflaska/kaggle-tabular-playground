@@ -26,6 +26,7 @@ RUN R -e 'install.packages(pkgs = c("tidyverse"))'
 RUN R -e 'install.packages(pkgs = c("tidymodels"))'
 RUN R -e 'install.packages(pkgs = c("rpart"))'
 RUN R -e 'install.packages(pkgs = c("rpart.plot"))'
+RUN R -e 'install.packages(pkgs = c("caret"))'
 
 #set up project directory
 RUN mkdir -m 777 /home/rstudio/project
