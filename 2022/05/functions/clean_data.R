@@ -27,8 +27,12 @@ clean_data = function(x = read_csv("~/project/2022/05/data/train.csv")) {
         f_27_data = x) %>% 
     bind_rows()
   
-  f_27_split = f_27_split_long %>% 
+  f_27_split = f_27_split_long %>%
+    group_by(id) %>% 
+    mutate(f_27_n_char = n_distinct(char_at_pos)) %>% 
+    as.data.frame() %>% 
     select(id,
+           f_27_n_char,
            pos,
            char_at_pos) %>% 
     mutate(pos = paste0("f_27_",pos)) %>% 

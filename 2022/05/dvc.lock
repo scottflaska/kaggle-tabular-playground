@@ -7,37 +7,37 @@ stages:
       md5: 38d8ca74676e1be914a84d2ae3696318
       size: 318733334
     - path: functions/clean_data.R
-      md5: 61dd621d7bb65e1b908111dfe86228ce
-      size: 1153
+      md5: 8ed4ffeb8a4fb5c33220e40b356ffb5e
+      size: 1278
     - path: prepare_data.R
-      md5: c2108a976f56ccdefd1e3f3461c74cf1
-      size: 711
+      md5: 25600eb2ac33a417002c7607614b9baf
+      size: 712
     outs:
     - path: outputs/train_fold.rds
-      md5: 554fa0ab7807a937c4278106e279da56
-      size: 12856974
+      md5: cb38830209f84545b7edbb42ea33094b
+      size: 96556853
     - path: outputs/validation_fold.rds
-      md5: 87e4fc0579d118bc2d9d707c4f2bc526
-      size: 114244138
+      md5: 28b30949413f0611458f78914d0f0243
+      size: 31931231
   train_model:
     cmd: Rscript train_model.R
     deps:
     - path: outputs/train_fold.rds
-      md5: 554fa0ab7807a937c4278106e279da56
-      size: 12856974
+      md5: cb38830209f84545b7edbb42ea33094b
+      size: 96556853
     - path: outputs/validation_fold.rds
-      md5: 87e4fc0579d118bc2d9d707c4f2bc526
-      size: 114244138
+      md5: 28b30949413f0611458f78914d0f0243
+      size: 31931231
     - path: train_model.R
       md5: f7f736451757c03d819aa7ed845d6de2
       size: 2318
     outs:
     - path: metrics/roc.txt
-      md5: c3cefc4206f72407e5d818519a1c055a
+      md5: 00e8873472abb2c4c7d5069c8b0f917e
       size: 9
     - path: outputs/machine_state_model.rds
-      md5: a61c3bff4935712401760be1114dadfe
-      size: 27887463
+      md5: e7304b9aef07a8107ba28e26d07fbe34
+      size: 208825707
   get_predictions:
     cmd: Rscript get_predictions.R
     deps:
@@ -45,9 +45,9 @@ stages:
       md5: ba8fdae95647d268e6170abb2f96369f
       size: 247187094
     - path: outputs/machine_state_model.rds
-      md5: a61c3bff4935712401760be1114dadfe
-      size: 27887463
+      md5: e7304b9aef07a8107ba28e26d07fbe34
+      size: 208825707
     outs:
     - path: outputs/submission_data.csv
-      md5: 1cb4f94e82c07c0a050189ddb70103f0
-      size: 18919211
+      md5: 3f852d20c2535d9cb980f1bbeebeeade
+      size: 18925237
