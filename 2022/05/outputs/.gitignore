@@ -1,3 +1,5 @@
 /model.rds
 /train_fold.rds
 /validation_fold.rds
+/machine_state_model.rds
+/submission_data.csv

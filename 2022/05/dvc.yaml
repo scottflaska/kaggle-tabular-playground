@@ -14,6 +14,11 @@ stages:
     - outputs/train_fold.rds
     - outputs/validation_fold.rds
     outs:
-    - outputs/model.rds
-    metrics:
-    - accuracy.txt
+    - outputs/machine_state_model.rds
+  get_predictions:
+    cmd: Rscript get_predictions.R
+    deps:
+    - outputs/machine_state_model.rds
+    - data/test.csv
+    outs:
+    - outputs/submission_data.csv

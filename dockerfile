@@ -27,6 +27,9 @@ RUN R -e 'install.packages(pkgs = c("tidymodels"))'
 RUN R -e 'install.packages(pkgs = c("rpart"))'
 RUN R -e 'install.packages(pkgs = c("rpart.plot"))'
 RUN R -e 'install.packages(pkgs = c("caret"))'
+RUN R -e 'install.packages(pkgs = c("doParallel"))'
+RUN R -e 'install.packages(pkgs = c("xgboost"))'
+RUN R -e 'install.packages(pkgs = c("e1071"))'
 
 #set up project directory
 RUN mkdir -m 777 /home/rstudio/project
