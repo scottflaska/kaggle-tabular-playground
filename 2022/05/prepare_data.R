@@ -10,7 +10,7 @@ train = read_csv("~/project/2022/05/data/train.csv",show_col_types = F) %>%
 set.seed(1)
 
 train_fold = train %>% 
-  slice_sample(prop = 0.05)
+  slice_sample(prop = 0.75)
   
 validation_fold = train %>% 
   filter(!(id %in% train_fold$id))

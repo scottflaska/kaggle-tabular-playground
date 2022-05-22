@@ -26,26 +26,27 @@ folds = createFolds(y = train_fold$target,
                     k = 5,
                     returnTrain = T)
 
-ctrl = trainControl(
-                    method = "cv",
+ctrl = trainControl(method = "cv",
                     number = 5,
                     index = folds,
                     savePredictions = "final",
                     allowParallel = T,
-                    classProbs = T)
+                    classProbs = T,
+                    summaryFunction = twoClassSummary)
 
-workers = round(detectCores()*0.5)
-
-cl = makePSOCKcluster(workers)
-
-registerDoParallel(cl)
+# workers = round(detectCores()*0.5)
+# 
+# cl = makePSOCKcluster(workers)
+# 
+# registerDoParallel(cl)
 
 start_time = Sys.time()
 
 machine_state_model = caret::train(model_recipe,
                                    data = train_fold,
                                    method = "xgbTree",
-                                   trControl = ctrl,
+                                   trControl = ctrl, 
+                                   metric = "ROC",
                                    tuneLength = 1,
                                    nthread = 1)
 
@@ -53,15 +54,15 @@ end_time = Sys.time()
 
 print(end_time - start_time)
 
-stopCluster(cl)
-
-foreach::registerDoSEQ()
+# stopCluster(cl)
+# 
+# foreach::registerDoSEQ()
 
 saveRDS(machine_state_model, file = "~/project/2022/05/outputs/machine_state_model.rds")
 
+roc = max(machine_state_model$results$ROC)
 
-
-
+cat(roc, file = "~/project/2022/05/metrics/roc.txt")
 
 # rpart_model = rpart(formula = target ~ . - id,
 #                     data = train_fold,
