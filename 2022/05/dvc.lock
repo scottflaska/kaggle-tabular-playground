@@ -6,35 +6,38 @@ stages:
     - path: data/train.csv
       md5: 38d8ca74676e1be914a84d2ae3696318
       size: 318733334
+    - path: functions/clean_data.R
+      md5: 61dd621d7bb65e1b908111dfe86228ce
+      size: 1153
     - path: prepare_data.R
-      md5: c3b6bf65250c33cd937fea48881a98b2
-      size: 595
+      md5: c2108a976f56ccdefd1e3f3461c74cf1
+      size: 711
     outs:
     - path: outputs/train_fold.rds
-      md5: 41d2d68d9d89ac289be0487af26caab9
-      size: 95442396
+      md5: 554fa0ab7807a937c4278106e279da56
+      size: 12856974
     - path: outputs/validation_fold.rds
-      md5: ec5db9cc9b773b9d370ca247aa819896
-      size: 31550800
+      md5: 87e4fc0579d118bc2d9d707c4f2bc526
+      size: 114244138
   train_model:
     cmd: Rscript train_model.R
     deps:
     - path: outputs/train_fold.rds
-      md5: 41d2d68d9d89ac289be0487af26caab9
-      size: 95442396
+      md5: 554fa0ab7807a937c4278106e279da56
+      size: 12856974
     - path: outputs/validation_fold.rds
-      md5: ec5db9cc9b773b9d370ca247aa819896
-      size: 31550800
+      md5: 87e4fc0579d118bc2d9d707c4f2bc526
+      size: 114244138
     - path: train_model.R
-      md5: 4e04725f6db801b86deb404db54fab54
-      size: 2328
+      md5: f7f736451757c03d819aa7ed845d6de2
+      size: 2318
     outs:
     - path: metrics/roc.txt
-      md5: 1f3238943c3b76a633796503fe3a9828
+      md5: c3cefc4206f72407e5d818519a1c055a
       size: 9
     - path: outputs/machine_state_model.rds
-      md5: e905e7fc87488e69af504b780bda2ca0
-      size: 210321789
+      md5: a61c3bff4935712401760be1114dadfe
+      size: 27887463
   get_predictions:
     cmd: Rscript get_predictions.R
     deps:
@@ -42,9 +45,9 @@ stages:
       md5: ba8fdae95647d268e6170abb2f96369f
       size: 247187094
     - path: outputs/machine_state_model.rds
-      md5: e905e7fc87488e69af504b780bda2ca0
-      size: 210321789
+      md5: a61c3bff4935712401760be1114dadfe
+      size: 27887463
     outs:
     - path: outputs/submission_data.csv
-      md5: d44e57184de8475db5733a73768cf06c
-      size: 18922654
+      md5: 1cb4f94e82c07c0a050189ddb70103f0
+      size: 18919211

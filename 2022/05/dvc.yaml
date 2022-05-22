@@ -3,6 +3,7 @@ stages:
     cmd: Rscript prepare_data.R
     deps:
       - prepare_data.R
+      - functions/clean_data.R
       - data/train.csv
     outs: 
       - outputs/train_fold.rds

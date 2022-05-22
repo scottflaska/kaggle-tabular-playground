@@ -17,8 +17,8 @@ train_fold = readRDS("~/project/2022/05/outputs/train_fold.rds")
 validation_fold = readRDS("~/project/2022/05/outputs/validation_fold.rds")
 
 model_recipe = recipe(target ~ ., data = train_fold) %>% 
-  update_role(id, new_role = "info") %>% 
-  update_role(f_27, new_role = "info")
+  update_role(id, new_role = "info")
+  # step_dummy(contains("f_27_"))
 
 set.seed(1)
 
