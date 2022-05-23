@@ -11,6 +11,8 @@ machine_state_model = readRDS("~/project/2022/05/outputs/machine_state_model.rds
 machine_state_model %>% 
   varImp()
 
+machine_state_model$bestTune
+
 train = machine_state_model$trainingData
 
 train %>% 
