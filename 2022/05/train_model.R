@@ -34,6 +34,14 @@ ctrl = trainControl(method = "cv",
                     classProbs = T,
                     summaryFunction = twoClassSummary)
 
+xgb_tree_tune_grid = expand.grid(eta = c(0.3),
+                                 max_depth = c(5),
+                                 gamma = c(0),
+                                 colsample_bytree = c(0.8),
+                                 min_child_weight = c(1),
+                                 subsample = c(0.75),
+                                 nrounds = c(100))
+
 # workers = round(detectCores()*0.5)
 # 
 # cl = makePSOCKcluster(workers)
@@ -47,7 +55,7 @@ machine_state_model = caret::train(model_recipe,
                                    method = "xgbTree",
                                    trControl = ctrl, 
                                    metric = "ROC",
-                                   tuneLength = 1,
+                                   tuneGrid = xgb_tree_tune_grid,
                                    nthread = 1)
 
 end_time = Sys.time()

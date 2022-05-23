@@ -29,15 +29,15 @@ stages:
       md5: 28b30949413f0611458f78914d0f0243
       size: 31931231
     - path: train_model.R
-      md5: f7f736451757c03d819aa7ed845d6de2
-      size: 2318
+      md5: 42e740e1fb53a4ffca97e95e16e62451
+      size: 2702
     outs:
     - path: metrics/roc.txt
-      md5: 00e8873472abb2c4c7d5069c8b0f917e
-      size: 9
+      md5: a02bae49712ede201f4fb5d2880466fd
+      size: 8
     - path: outputs/machine_state_model.rds
-      md5: e7304b9aef07a8107ba28e26d07fbe34
-      size: 208825707
+      md5: d331ba4c5f34e77d10762c5e4e6bce8e
+      size: 209421618
   get_predictions:
     cmd: Rscript get_predictions.R
     deps:
@@ -45,9 +45,9 @@ stages:
       md5: ba8fdae95647d268e6170abb2f96369f
       size: 247187094
     - path: outputs/machine_state_model.rds
-      md5: e7304b9aef07a8107ba28e26d07fbe34
-      size: 208825707
+      md5: d331ba4c5f34e77d10762c5e4e6bce8e
+      size: 209421618
     outs:
     - path: outputs/submission_data.csv
-      md5: 3f852d20c2535d9cb980f1bbeebeeade
-      size: 18925237
+      md5: ec7f7c35564c01cfe0cc3da75fb92d61
+      size: 19092720
