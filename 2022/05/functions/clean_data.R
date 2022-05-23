@@ -14,7 +14,7 @@ clean_data = function(x = read_csv("~/project/2022/05/data/train.csv")) {
                                    end = pos)) %>% 
       as.data.frame() %>% 
       mutate(char_at_pos = factor(char_at_pos, levels = LETTERS)) %>% 
-      mutate(char_at_pos = as.numeric(char_at_pos))
+      mutate(char_at_pos = as.numeric(char_at_pos) - 1) #Linear relationships in some features (Except A)
     
     return(append_char_at_pos)
     
@@ -38,7 +38,8 @@ clean_data = function(x = read_csv("~/project/2022/05/data/train.csv")) {
     mutate(pos = paste0("f_27_",pos)) %>% 
     pivot_wider(names_from = pos,
                 values_from = char_at_pos) %>% 
-    as.data.frame()
+    as.data.frame() %>% 
+    mutate(f_27_5_8_9_10 = f_27_5 + f_27_8 + f_27_9 + f_27_10)
   
   with_f_27_split = x %>% 
     inner_join(f_27_split, 

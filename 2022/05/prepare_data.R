@@ -15,7 +15,7 @@ train_cleaned = clean_data(x = train) %>%
 set.seed(1)
 
 train_fold = train_cleaned %>% 
-  slice_sample(prop = 0.75)
+  slice_sample(prop = 0.9)
   
 validation_fold = train_cleaned %>% 
   filter(!(id %in% train_fold$id))

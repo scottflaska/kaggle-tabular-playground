@@ -35,12 +35,12 @@ ctrl = trainControl(method = "cv",
                     summaryFunction = twoClassSummary)
 
 xgb_tree_tune_grid = expand.grid(eta = c(0.3),
-                                 max_depth = c(5,7),
+                                 max_depth = c(7,10),
                                  gamma = c(0),
                                  colsample_bytree = c(0.8),
                                  min_child_weight = c(1),
                                  subsample = c(0.75),
-                                 nrounds = c(100,200))
+                                 nrounds = c(200,500))
 
 # workers = round(detectCores()*0.5)
 # 

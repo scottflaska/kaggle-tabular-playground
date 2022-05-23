@@ -14,8 +14,8 @@ machine_state_model %>%
 train = machine_state_model$trainingData
 
 train %>% 
-  slice_sample(n = 50000) %>% 
-  ggplot(mapping = aes(x = 1,
-                       y = f_26,
+  slice_sample(n = 25000) %>% 
+  ggplot(mapping = aes(x = f_25,
+                       y = f_19,
                        color = target)) +
-  geom_quasirandom()
+  geom_point()
