@@ -3,3 +3,4 @@
 /validation_fold.rds
 /machine_state_model.rds
 /submission_data.csv
+/machine_state_rf_model.rds

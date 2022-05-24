@@ -30,6 +30,8 @@ RUN R -e 'install.packages(pkgs = c("caret"))'
 RUN R -e 'install.packages(pkgs = c("doParallel"))'
 RUN R -e 'install.packages(pkgs = c("xgboost"))'
 RUN R -e 'install.packages(pkgs = c("e1071"))'
+RUN R -e 'install.packages(pkgs = c("randomForest"))'
+RUN R -e 'install.packages(pkgs = c("ggbeeswarm"))'
 
 #set up project directory
 RUN mkdir -m 777 /home/rstudio/project

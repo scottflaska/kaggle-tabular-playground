@@ -51,3 +51,22 @@ stages:
     - path: outputs/submission_data.csv
       md5: 28798ec6e6849577bdd0c009bc83e747
       size: 19238152
+  train_rf_model:
+    cmd: Rscript train_rf_model.R
+    deps:
+    - path: outputs/train_fold.rds
+      md5: 5fa200c53e46f97838c037766f11317f
+      size: 116800376
+    - path: outputs/validation_fold.rds
+      md5: 71a28274f0381032b4a021c870094be8
+      size: 12904787
+    - path: train_rf_model.R
+      md5: 91cb0e0ce5647dc18e860635df695847
+      size: 1556
+    outs:
+    - path: metrics/rf_roc.txt
+      md5: 1e2fef226f19b5bdafe7be8b0c62b17f
+      size: 8
+    - path: outputs/machine_state_rf_model.rds
+      md5: 4ed9f71e471bbadbc03a08708d0c6943
+      size: 65501063

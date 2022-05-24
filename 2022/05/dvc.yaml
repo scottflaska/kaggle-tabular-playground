@@ -19,6 +19,17 @@ stages:
     metrics:
       - metrics/roc.txt:
           cache: false
+  train_rf_model:
+    cmd: Rscript train_rf_model.R
+    deps:
+      - train_rf_model.R
+      - outputs/train_fold.rds
+      - outputs/validation_fold.rds
+    outs:
+      - outputs/machine_state_rf_model.rds
+    metrics:
+      - metrics/rf_roc.txt:
+          cache: false
   get_predictions:
     cmd: Rscript get_predictions.R
     deps:
