@@ -9,7 +9,7 @@ train_fold = readRDS("~/project/2022/05/outputs/train_fold.rds")
 train_sample = train_fold %>% 
   slice_sample(n = 10000)
 
-rpart_model = rpart(formula = target ~ . - id - f_27,
+rpart_model = rpart(formula = target ~ . - id,
                     data = train_sample,
                     method = "class")
 

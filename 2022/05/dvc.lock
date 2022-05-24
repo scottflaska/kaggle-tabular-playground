@@ -10,15 +10,15 @@ stages:
       md5: 433b9aedf46d085c3f33a1bb78bc584c
       size: 1400
     - path: prepare_data.R
-      md5: b24d4e5b90fddaa16264176fc4d5f011
-      size: 711
+      md5: 844767dfbc790cce2bc4e381b4636b18
+      size: 712
     outs:
     - path: outputs/train_fold.rds
-      md5: 5fa200c53e46f97838c037766f11317f
-      size: 116800376
+      md5: 3c557d2dd0cc27df8ea85d9c8b80e51b
+      size: 123283851
     - path: outputs/validation_fold.rds
-      md5: 71a28274f0381032b4a021c870094be8
-      size: 12904787
+      md5: 8a52a29e9326b3173b34985f24a0e672
+      size: 6462929
   train_model:
     cmd: Rscript train_model.R
     deps:
