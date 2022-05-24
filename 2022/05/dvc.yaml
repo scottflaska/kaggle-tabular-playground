@@ -33,7 +33,9 @@ stages:
   get_predictions:
     cmd: Rscript get_predictions.R
     deps:
+      - get_predictions.R
       - outputs/machine_state_model.rds
+      - outputs/machine_state_rf_model.rds
       - data/test.csv
     outs:
       - outputs/submission_data.csv
